@@ -1,0 +1,13 @@
+name: Keep Render awake
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  curl-website:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render service
+        run: curl -I https://allergfy.onrender.com/ || exit 0
